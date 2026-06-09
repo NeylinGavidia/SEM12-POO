@@ -4,6 +4,8 @@
  */
 package sem12.poo;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,7 +15,7 @@ import javax.swing.JTextField;
  *
  * @author UCC20411
  */
-public class VentanaBase extends JFrame{
+public class VentanaBase extends JFrame implements ActionListener {
     private JLabel titulo;
     private JTextField caja;
     private JButton ver;
@@ -44,7 +46,14 @@ public class VentanaBase extends JFrame{
     ver = new JButton();
     ver.setBounds(110,100,180,25);
     ver.setText("VER");
+    ver.addActionListener(this);
     add(ver);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource().equals(ver)){
+        caja.setText("Hola Mundo Swing");}
     }
 }
 
